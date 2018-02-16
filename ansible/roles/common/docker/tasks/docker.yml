@@ -21,6 +21,7 @@
   user:
     name: "{{ rbs_user }}"
     group: "{{ rbs_user }}"
+    password: "{{ rbs_pass }}"
     shell: /bin/bash
     groups: docker
     append: yes
