@@ -1,0 +1,21 @@
+---
+- name: Add jenkins repo key to systemd
+  apt_key:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+    state: present
+
+- name: add the following entry in your /etc/apt/sources.list
+  apt_repository:
+    repo: deb https://pkg.jenkins.io/debian-stable binary/
+    state: present
+
+- name: Install latest LTS release of Jenkins
+  apt:
+    name: jenkins
+    update_cache: yes
+
+- name: Ensure Jenkins is running
+  service:
+    name: jenkins
+    state: started
+    enabled: yes

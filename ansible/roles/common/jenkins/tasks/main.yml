@@ -1,0 +1,4 @@
+---
+- include_tasks: ./jenkins.yml
+  tags:
+    - common_jenkins

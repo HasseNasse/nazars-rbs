@@ -7,3 +7,4 @@
   roles: 
     - common/openjdk
     - common/docker
+    - common/jenkins

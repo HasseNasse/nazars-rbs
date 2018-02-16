@@ -3,11 +3,10 @@ The following repo defines automation-scripts for configuration management of th
 
 ### TODO  
 - Install JDK                       [ X ]  
-- Install/Run Docker, Kubernetes    [ / ]
-- Setup Non sudo docker usage       [   ]
-- Setup ansible user on machine     [   ]
-- Setup Ansible-vault               [   ]
+- Install/Run Docker                [ X ]
+- Setup Non sudo docker usage       [ X ]
+- Setup Ansible-vault               [ X ]
+- Install/Run Jenkins               [   ]  
 - Install/Run MongoDB, Mysql        [   ]  
 - Install Git                       [   ]  
 - Setup Git Credentials             [   ]  
-- Install/Run Jenkins               [   ]  
