@@ -2,16 +2,11 @@
 - hosts: master
   remote_user: nazars
   become: yes
-  tasks: 
-    - name: install packages
-      apt:
-          name: "{{ item }}"
-          update_cache: yes
-      with_items:
-        - curl
-        - git
-        - wget
-        - locate
+  vars_files:
+    - ./vars/rbs-vars.yml
+  roles: 
+    - common/openjdk
+    - common/docker
 
       
 

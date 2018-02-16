@@ -1,0 +1,5 @@
+---
+- name: Download Open JDK
+  apt:
+    name: "openjdk-{{ openjdk_version }}-jdk"
+    update_cache: true

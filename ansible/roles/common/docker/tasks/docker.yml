@@ -1,0 +1,28 @@
+---
+- name: Docker apt_repository setup
+  apt_repository: 
+    repo: deb https://download.docker.com/linux/ubuntu xenial stable
+    state: present
+
+- name: Docker setup
+  apt: 
+    name: docker-ce={{docker_ce_version}}
+    update_cache: true
+    state: present
+    allow_unauthenticated: yes
+
+- name: Startup docker
+  service: 
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Setup docker command usage without sudo for user
+  user:
+    name: "{{ rbs_user }}"
+    group: "{{ rbs_user }}"
+    shell: /bin/bash
+    groups: docker
+    append: yes
+  tags:
+    - sudodocker
