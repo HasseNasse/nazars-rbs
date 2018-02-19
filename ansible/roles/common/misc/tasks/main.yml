@@ -1,0 +1,14 @@
+---
+- name: Install tar
+  apt:
+    name: tar
+    update_cache: yes
+  tags:
+    - tar
+
+- name: Install gzip
+  apt:
+    name: gzip
+    update_cache: yes
+  tags:
+    - gzip

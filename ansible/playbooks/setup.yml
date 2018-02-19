@@ -5,9 +5,11 @@
   vars_files:
     - ./vars/rbs-vars.yml
   roles: 
+    - common/misc #Install first as dependencies may occure below
     - common/python
     - common/openjdk
     - common/docker
     - common/jenkins
+    #- common/maven
     - master/redis
     - master/websphere_liberty
