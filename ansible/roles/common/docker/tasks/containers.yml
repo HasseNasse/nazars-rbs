@@ -1,0 +1,18 @@
+---
+  - name: Install docker-py
+    pip:
+      name: docker-py
+
+  - name: Spin up a redis in-memory data-structure
+    docker_container:
+      name: nazars-redis
+      image: redis:{{redis_DI_version}}
+      state: present
+      recreate: yes
+      exposed_ports:
+        - 6379
+      volumes: 
+        - /var/lib/docker_redis:/data
+    tags:
+      - redis
+

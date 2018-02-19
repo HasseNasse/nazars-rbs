@@ -5,6 +5,7 @@
   vars_files:
     - ./vars/rbs-vars.yml
   roles: 
+    - common/python
     - common/openjdk
     - common/docker
     - common/jenkins

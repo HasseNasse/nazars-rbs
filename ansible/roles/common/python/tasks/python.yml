@@ -1,0 +1,13 @@
+---
+  - name: Install Python
+    apt:
+      name: python
+      update_cache: yes
+
+  - name: Get get-pip.py
+    get_url: 
+      url:  https://bootstrap.pypa.io/get-pip.py
+      dest: ./get-pip.py
+  
+  - name: Install pip
+    command: python get-pip.py
