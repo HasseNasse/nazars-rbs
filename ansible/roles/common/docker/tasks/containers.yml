@@ -7,7 +7,7 @@
     docker_container:
       name: nazars-redis
       image: redis:{{redis_DI_version}}
-      state: present
+      state: started
       recreate: yes
       exposed_ports:
         - 6379

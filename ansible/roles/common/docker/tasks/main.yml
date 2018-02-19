@@ -1,6 +1,5 @@
 ---
 - include_tasks: 
     ./docker.yml
-    ./containers.yml
   tags:
     - common_docker
