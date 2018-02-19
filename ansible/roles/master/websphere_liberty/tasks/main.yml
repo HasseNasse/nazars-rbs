@@ -1,0 +1,5 @@
+---
+- include_tasks:
+    ./was_liberty.yml
+  tags:
+    master_was_liberty

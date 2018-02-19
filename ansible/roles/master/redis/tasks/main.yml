@@ -1,0 +1,5 @@
+---
+- include_tasks:
+    ./redis.yml
+  tags:
+    master_redis

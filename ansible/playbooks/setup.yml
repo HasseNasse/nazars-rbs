@@ -9,3 +9,5 @@
     - common/openjdk
     - common/docker
     - common/jenkins
+    - master/redis
+    - master/websphere_liberty
