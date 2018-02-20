@@ -12,3 +12,10 @@
     update_cache: yes
   tags:
     - gzip
+
+- name: install tree
+  apt:
+    name: tree
+    update_cache: yes
+  tags:
+    - tree

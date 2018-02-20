@@ -4,11 +4,6 @@
     path: /var/was-liberty
     state: directory
 
-- name: Create app-server dropins dir
-  file: 
-    path: /var/was-liberty/dropins
-    state: directory
-
 - name: Spin up Websphere liberty Application Server
   docker_container:
     name: nazars-was-liberty
@@ -21,3 +16,12 @@
       - "/var/was-liberty:/config"
   tags:
     - was
+
+- name: Take ownership of ../was-liberty/ dir
+  file:
+    path: /var/was-liberty/
+    recurse: yes
+    mode: 0777
+    state: directory
+
+
