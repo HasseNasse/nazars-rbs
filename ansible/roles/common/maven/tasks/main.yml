@@ -1,0 +1,4 @@
+---
+- include_tasks: ./maven.yml
+  tags:
+    common_maven

@@ -1,0 +1,5 @@
+MAVEN_HOME={{maven_folder_home_path}}
+MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=128m"
+if [[ ":$PATH:" != *":{{maven_home_bin_path}}:"* ]]; then
+PATH=$PATH:{{maven_home_bin_path}}
+fi

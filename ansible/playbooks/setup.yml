@@ -10,6 +10,6 @@
     - common/openjdk
     - common/docker
     - common/jenkins
-    #- common/maven
+    - common/maven
     - master/redis
     - master/websphere_liberty

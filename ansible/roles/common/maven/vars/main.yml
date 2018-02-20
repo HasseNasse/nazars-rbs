@@ -1,0 +1,8 @@
+---
+maven_base_url: http://apache.mirrors.spacedump.net/maven/maven-3/3.5.2/binaries/
+maven_folder_path: /var/lib/maven
+maven_folder_name: apache-maven-3.5.2
+maven_folder_home_path: "{{maven_folder_path}}/{{maven_folder_name}}"
+maven_home_bin_path: "{{maven_folder_home_path}}/bin"
+maven_archive_name: apache-maven-3.5.2-bin.tar.gz
+maven_checksum: md5:948110de4aab290033c23bf4894f7d9a

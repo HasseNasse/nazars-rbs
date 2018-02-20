@@ -1,0 +1,24 @@
+---
+- name: Bring down Maven package
+  get_url: 
+    url: "{{maven_base_url}}{{maven_archive_name}}"
+    dest: ./
+    checksum: "{{maven_checksum}}"
+
+- name: create maven directory /var/lib/maven
+  file:
+    path: /var/lib/maven
+    state: directory
+    mode: 0755
+
+- name: Unarchive Maven bin to /var/lib/maven
+  command: "tar xzvf {{maven_archive_name}} -C /var/lib/maven"
+
+- set_fact:
+     maven_archive_name: "{{maven_archive_name}}"
+     maven_home_bin_path: "{{maven_home_bin_path}}"
+
+- name: set env vars
+  template: 
+    src: maven.sh.j2
+    dest: /etc/profile.d/maven.sh
