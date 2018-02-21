@@ -3,7 +3,7 @@
   remote_user: nazars
   become: yes
   vars_files:
-    - ./vars/rbs-vars.yml
+    - ../inventory/group_vars/rbs-vars.yml
   roles: 
     - common/misc #Install first as dependencies may occure below
     - common/python
