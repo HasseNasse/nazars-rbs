@@ -10,8 +10,8 @@
     image: websphere-liberty:{{was_liberty_tag}}
     state: started
     ports:
-      - "9002:9080" #HTTP port
-      - "9003:9443" #HTTPS port
+      - "{{ wlp_http_port }}:9080" #HTTP port
+      - "{{ wlp_https_port }}:9443" #HTTPS port
     volumes:
       - "/var/was-liberty:/config"
   tags:

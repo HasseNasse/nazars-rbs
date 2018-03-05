@@ -20,9 +20,9 @@
     state: started
     enabled: yes
 
-- name: Change default port from 8080 --> 9001
+- name: Change default port 8080
   lineinfile:
     path: /etc/default/jenkins
     regexp: '^HTTP_PORT=8080'
-    line: 'HTTP_PORT=9001'
+    line: 'HTTP_PORT={{ jenkins_port }}'
   notify: restart jenkins

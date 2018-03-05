@@ -1,0 +1,50 @@
+---
+- name: Create gitlab dir /etc/gitlab
+  file:
+    path: /etc/gitlab
+    state: directory
+
+- name: Create gitlab dir /var/opt/gitlab
+  file:
+    path: /var/opt/gitlab
+    state: directory
+
+- name: Create gitlab dir /var/log/gitlab
+  file:
+    path: /var/log/gitlab
+    state: directory
+  
+- name: Spin up Gitlab Container
+  docker_container:
+    name: nazars-gitlab-scm
+    image: gitlab/gitlab-ce
+    state: started
+    ports:
+      - "{{gitlab_http_port}}:80"
+      - "{{gitlab_ssh_port}}:22"
+      - "{{gitlab_https_port}}:443"
+    volumes:
+      - "/etc/gitlab:/etc/gitlab"
+      - "/var/opt/gitlab:/var/opt/gitlab"
+      - "/var/log/gitlab:/var/log/gitlab"
+
+- name: Take ownership of /etc/gitlab dir
+  file:
+    path: /etc/gitlab
+    recurse: yes
+    mode: 0777
+    state: directory
+
+- name: Take ownership of /var/opt/gitlab dir
+  file:
+    path: /var/opt/gitlab
+    recurse: yes
+    mode: 0777
+    state: directory
+
+- name: Take ownership of /var/log/gitlab dir
+  file:
+    path: /var/log/gitlab
+    recurse: yes
+    mode: 0777
+    state: directory
