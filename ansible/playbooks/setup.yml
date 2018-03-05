@@ -13,3 +13,4 @@
     - common/maven
     - master/redis
     - master/websphere_liberty
+    - master/gitlab

@@ -5,3 +5,4 @@ The following repo defines automation-scripts for configuration management of th
 Jenkins/Hudson CI --> 9001  
 WebSphere Liberty Application Server --> 9002/9003(HTTP/HTTPS)  
 Redis In-memory DS --> 9004
+GitLab CE ---> 9010
