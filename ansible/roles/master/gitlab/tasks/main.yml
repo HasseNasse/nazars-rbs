@@ -27,6 +27,8 @@
       - "/etc/gitlab:/etc/gitlab"
       - "/var/opt/gitlab:/var/opt/gitlab"
       - "/var/log/gitlab:/var/log/gitlab"
+  tags:
+    - gitlab
 
 - name: Take ownership of /etc/gitlab dir
   file:

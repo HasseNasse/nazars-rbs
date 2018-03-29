@@ -19,3 +19,10 @@
     update_cache: yes
   tags:
     - tree
+
+- name: install htop
+  apt:
+    name: htop
+    update_cache: yes
+  tags:
+    - htop
