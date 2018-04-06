@@ -14,3 +14,4 @@
     - master/redis
     - master/websphere_liberty
     - master/gitlab
+    - master/openshift

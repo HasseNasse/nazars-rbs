@@ -1,0 +1,22 @@
+---
+- name: get openshift origin
+  unarchive:
+    src: "{{ openshift_install_url }}"
+    dest: /home/{{rbs_user}}
+    remote_src: yes
+  
+
+- name: copy insecury registry to /etc/docker
+  copy:
+    src: daemon.json
+    dest: /etc/docker/
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - openshift
+    
+- name: run oc cluster up 
+  command: /home/{{rbs_user}}/{{openshift_install_folder}}/oc cluster up --public-hostname='nazars.rb.vps'
+  tags:
+    - openshift
