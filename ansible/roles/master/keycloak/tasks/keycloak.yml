@@ -1,4 +1,14 @@
 ---
+- name: Create keycloak dir /var/lib/kecloak
+  file:
+    path: /var/lib/keycloak
+    state: directory
+
+- name: Create gitlab dir /var/lib/kecloak/mysql
+  file:
+    path: /var/lib/kecloak/mysql
+    state: directory
+
 - name: Create docker user-defined network
   docker_network:
     name: keycloak-network
@@ -7,12 +17,13 @@
   docker_container:
     name: keycloak-mysql
     image: mysql
+    state: started
     volumes:
       - /var/lib/keycloak/mysql:/var/lib/mysql
     networks:
       - name: "keycloak-network"
-    exposed_ports:
-      - "{{keycloak_db_port}}:3306"
+    ports:
+      - "{{ keycloak_db_port }}:3306"
     env:
       MYSQL_DATABASE: "{{ keycloak_db_name }}"
       MYSQL_USER: "{{ keycloak_db_user }}"
@@ -22,12 +33,17 @@
 - name: Start Keycloak instance
   docker_container:
     name: keycloak
-    image: jboss/keycloak
-    volumes:
-      - /var/lib/keycloak:/opt/jboss/keycloak
-    exposed_ports:
-      - "{{keycloak_port}}:8080"
+    image: 'jboss/keycloak'
+    state: started
+    ports:
+      - "{{ keycloak_port }}:8080"
     networks:
       - name: "keycloak-network"
     env:
-      JDBC_PARAMS: 'connectionTimeout=30'
+      KEYCLOAK_USER: "{{ keycloak_user }}"
+      KEYCLOAK_PASSWORD: "{{ keycloak_pw }}"
+      DB_USER: "{{ keycloak_db_user }}"
+      DB_PASSWORD: "{{ keycloak_db_pw }}"
+      DB_ADDR: keycloak-mysql
+      DB_VENDOR: mysql
+      # DB_PORT: "{{ keycloak_db_port }}"
