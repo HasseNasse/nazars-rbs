@@ -15,8 +15,15 @@
     mode: 0644
   tags:
     - openshift
+
+- name: restart docker daemon
+  service: 
+    name: docker
+    state: restarted
+    enabled: yes
     
 - name: run oc cluster up 
   command: /home/{{rbs_user}}/{{openshift_install_folder}}/oc cluster up --public-hostname='nazars.rb.vps'
   tags:
     - openshift
+    - runshift

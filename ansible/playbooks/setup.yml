@@ -12,6 +12,7 @@
     - common/jenkins
     - common/maven
     - master/redis
-    - master/websphere_liberty
     - master/gitlab
-    - master/openshift
+    - master/keycloak
+    #- master/openshift
+    #- master/websphere_liberty

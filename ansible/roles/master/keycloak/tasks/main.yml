@@ -1,0 +1,4 @@
+---
+- include_tasks: keycloak.yml
+  tags:
+    - master_keycloak
